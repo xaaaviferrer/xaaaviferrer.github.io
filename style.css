@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  background-color: ##FFFFFF;
 }
 
 .contenedor-video {
@@ -14,3 +13,10 @@ video {
   width: 100%;
   object-fit: cover;
 }
+body {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2WtwgotGMKCicYhLBhCP_a8RUzl2AC9K_9g&s');
+  background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
