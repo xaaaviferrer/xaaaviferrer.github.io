@@ -37,17 +37,30 @@
             padding: 20px;
             margin-top: 20px;
         }
+        .dark-bg-active {
+            background-color: #333;
+        }
     </style>
 </head>
 <body>
     <div id="sidebar">
         <a href="home.html">Inicio</a>
-        <a href="linux.html">Linux</a>
-        <a href="windows.html">Windows</a>
+        <a id="linux-link" href="linux.html">Linux</a>
+        <a id="windows-link" href="windows.html">Windows</a>
     </div>
     <div class="content">
         <h1>Bienvenido a Flex</h1>
         <p>Este es el contenido principal de la página.</p>
     </div>
+
+    <script>
+        document.getElementById("linux-link").addEventListener("click", function() {
+            document.getElementById("linux-link").classList.toggle("dark-bg-active");
+        });
+
+        document.getElementById("windows-link").addEventListener("click", function() {
+            document.getElementById("windows-link").classList.toggle("dark-bg-active");
+        });
+    </script>
 </body>
 </html>
