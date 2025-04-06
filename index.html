@@ -3,63 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HESTER</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Descripción de la página">
+    <title>Flex</title>
     <style>
-        .text-white {
-            color: white;
-        }
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
         }
-        .sidenav {
-            height: 100%;
+        #sidebar {
             width: 200px;
+            height: 100vh;
+            background-color: #333;
+            color: white;
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #111;
             padding-top: 20px;
         }
-        .sidenav a {
-            padding: 8px 8px 8px 16px;
+        #sidebar a {
+            padding: 10px 15px;
             text-decoration: none;
-            font-size: 25px;
             color: white;
             display: block;
         }
-        .sidenav a:hover {
+        #sidebar a:hover {
             background-color: #575757;
         }
-        .main {
+        .content {
             margin-left: 220px;
-            padding: 0px 10px;
+            padding: 20px;
+        }
+        .dark-bg {
+            background-color: #2e2e2e;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="sidenav">
-        <a href="#section1">Sección 1</a>
-        <a href="#section2">Sección 2</a>
-        <a href="#section3">Sección 3</a>
-        <a href="#section4">Sección 4</a>
+    <div id="sidebar">
+        <a href="home.html">Inicio</a>
+        <a href="linux.html">Linux</a>
+        <a href="windows.html">Windows</a>
     </div>
-    <div class="main">
-        <h1 id="section1">Bienvenido a HESTER</h1>
-        <p class="text-white">Esta es una página de ejemplo creada por lal</p>
-        <p class="text-white">Visita más en <a href="https://mobren.net/" target="_blank">Mobren</a></p>
-        <h2 id="section2">LINUX</h2>
-        <p class="text-white">cd nombre_carpeta: Entra en una carpeta</p>
-        <p class="text-white">free -h: Muestra la memoria RAM disponible</p>
-        <p class="text-white">uptime: Muestra el tiempo que lleva encendido el sistema</p>
-        <p class="text-white">sudo lshw -short → versión resumida de componentes</p>
-        <h2 id="section3">WINDOWS</h2>
-        <p class="text-white">time: cambiar tiempo</p>
-        <p class="text-white">cls: Limpiar la terminal</p>
-        <!-- Más contenido aquí -->
+    <div class="content">
+        <h1>Bienvenido a Flex</h1>
+        <p>Este es el contenido principal de la página.</p>
     </div>
 </body>
 </html>
