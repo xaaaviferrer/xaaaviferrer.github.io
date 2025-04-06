@@ -14,7 +14,7 @@ video {
   object-fit: cover;
 }
 body {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2WtwgotGMKCicYhLBhCP_a8RUzl2AC9K_9g&s');
+  background-image: url('https://www.google.com/imgres?q=shrek&imgurl=https%3A%2F%2Ffrikanime.com%2Fwp-content%2Fuploads%2F2024%2F10%2FSHREK-POSED-FIGURE-1.jpg&imgrefurl=https%3A%2F%2Ffrikanime.com%2Fpreorder%2Fshrek-posed-figure%2F&docid=KXyyElfF0eocQM&tbnid=J4dVI-Hw0btD7M&vet=12ahUKEwj77sn5pMOMAxWeUqQEHeQKCR0QM3oECGAQAA..i&w=1000&h=1000&hcb=2&ved=2ahUKEwj77sn5pMOMAxWeUqQEHeQKCR0QM3oECGAQAA');
   background-size: cover; /* Hace que la imagen cubra toda la pantalla */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
