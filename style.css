@@ -1,26 +1,21 @@
 body {
-  margin: 0;
-}
-
-.contenedor-video {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
-video {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-body {
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6ZJwCeCCDBu6IpFm51dIn3IDdG5veZc2Udg&s');
   background-size: cover; /* Hace que la imagen cubra toda la pantalla */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   margin-bottom: 10px;
-   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrXggF-WPumfjBMxYHfSJifLoIu-vq4Sj_Pg&s');
+}
+
+body::after {
+  content: "";
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrXggF-WPumfjBMxYHfSJifLoIu-vq4Sj_Pg&s');
   background-size: cover; /* Hace que la imagen cubra toda la pantalla */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
+  position: fixed;
+  top: 50vh; /* Posiciona la segunda imagen debajo de la primera */
+  left: 0;
+  width: 100%;
+  height: 50vh; /* La altura de la segunda imagen será la mitad de la pantalla */
+  z-index: -1; /* Asegura que la imagen esté detrás del contenido */
 }
