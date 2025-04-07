@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chistes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+        #sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        #sidebar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .dark-bg {
+            background-color: #2e2e2e;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .dark-bg-active {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <a href="home.html">Inicio</a>
+        <a id="linux-link" href="linux.html">Linux</a>
+        <a id="windows-link" href="windows.html">Windows</a>
+        <a id="jokes-link" href="jokes.html">Chistes</a>
+    </div>
+    <div class="content">
+        <h1>Chistes</h1>
+        <p>Este es el contenido principal de la página de chistes.</p>
+    </div>
 
+    <script>
+        document.getElementById("linux-link").addEventListener("click", function(event) {
+            event.preventDefault(); // Evita la acción predeterminada del enlace
+            document.getElementById("linux-link").classList.toggle("dark-bg-active");
+            window.location.href = this.href; // Redirige a la URL del enlace
+        });
+
+        document.getElementById("windows-link").addEventListener("click", function(event) {
+            event.preventDefault(); // Evita la acción predeterminada del enlace
+            document.getElementById("windows-link").classList.toggle("dark-bg-active");
+            window.location.href = this.href; // Redirige a la URL del enlace
+        });
+    </script>
+</body>
+</html>
