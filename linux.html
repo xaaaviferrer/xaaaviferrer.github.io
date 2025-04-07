@@ -47,11 +47,11 @@
         <a href="home.html">Inicio</a>
         <a id="linux-link" href="linux.html">Linux</a>
         <a id="windows-link" href="windows.html">Windows</a>
+        <a id="joker-link" href="joker.html">Joker</a> <!-- Nuevo enlace añadido aquí -->
     </div>
     <div class="content">
         <h1>Página de Linux</h1>
         <p>Contenido específico para usuarios de Linux.</p>
-        <button id="joker-button">Ir a Joker</button>
     </div>
     <script>
         document.getElementById("linux-link").addEventListener("click", function() {
@@ -62,8 +62,8 @@
             document.getElementById("windows-link").classList.toggle("dark-bg-active");
         });
 
-        document.getElementById("joker-button").addEventListener("click", function() {
-            window.location.href = "joker.html";
+        document.getElementById("joker-link").addEventListener("click", function() {
+            document.getElementById("joker-link").classList.toggle("dark-bg-active");
         });
     </script>
 </body>
