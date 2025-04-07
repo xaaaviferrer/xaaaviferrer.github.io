@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linux</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .main-content {
+            flex: 1;
+            padding: 15px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Página de Linux</h1>
-    <p>Contenido específico para usuarios de Linux.</p>
+    <div class="sidebar">
+        <h2>Barra Lateral</h2>
+        <ul>
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h1>Página de Linux</h1>
+        <p>Contenido específico para usuarios de Linux.</p>
+    </div>
 </body>
 </html>
