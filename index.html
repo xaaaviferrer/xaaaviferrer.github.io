@@ -47,6 +47,7 @@
         <a href="home.html">Inicio</a>
         <a id="linux-link" href="linux.html">Linux</a>
         <a id="windows-link" href="windows.html">Windows</a>
+        <a id="index-link" href="index.html">Inicio</a>
         <a id="jokes-link" href="jokes.html">Chistes</a> <!-- Nuevo botón -->
     </div>
     <div class="content">
@@ -66,6 +67,13 @@
             document.getElementById("windows-link").classList.toggle("dark-bg-active");
             window.location.href = this.href; // Redirige a la URL del enlace
         });
+        
+        document.getElementById("index-link").addEventListener("click", function(event) {
+            event.preventDefault(); // Evita la acción predeterminada del enlace
+            document.getElementById("index-link").classList.toggle("dark-bg-active");
+            window.location.href = this.href; // Redirige a la URL del enlace
+        });
+        
     </script>
 </body>
 </html>
