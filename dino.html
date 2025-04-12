@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Dino</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            background-color: #f7f7f7;
+        }
+        .game-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .dino {
+            position: absolute;
+            bottom: 100px;
+            left: 50px;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+        .cactus {
+            position: absolute;
+            bottom: 100px;
+            right: 0;
+            width: 30px;
+            height: 50px;
+            background-color: #228B22;
+        }
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #666;
+        }
+        .score {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="dino" id="dino"></div>
+        <div class="ground"></div>
+        <div class="score" id="score">Puntuación: 0</div>
+    </div>
+    <script>
+        const dino = document.getElementById('dino');
+        const scoreElement = document.getElementById('score');
+        let isJumping = false;
+        let gravity = 0.9;
+        let isGameOver = false;
+        let score = 0;
 
+        function jump() {
+            if (isJumping) return;
+            isJumping = true;
+            let upInterval = setInterval(() => {
+                let dinoBottom = parseInt(window.getComputedStyle(dino).bottom.replace('px', ''));
+                if (dinoBottom >= 150) {
+                    clearInterval(upInterval);
+                    let downInterval = setInterval(() => {
+                        dinoBottom = parseInt(window.getComputedStyle(dino).bottom.replace('px', ''));
+                        if (dinoBottom <= 0) {
+                            clearInterval(downInterval);
+                            isJumping = false;
+                        }
+                        dino.style.bottom = (dinoBottom - 5) + 'px';
+                    }, 20);
+                }
+                dino.style.bottom = (dinoBottom + 5) + 'px';
+            }, 20);
+        }
+
+        function generateCactus() {
+            if (isGameOver) return;
+            const cactus = document.createElement('div');
+            cactus.classList.add('cactus');
+            document.querySelector('.game-container').appendChild(cactus);
+            let cactusPosition = window.innerWidth;
+            cactus.style.left = cactusPosition + 'px';
+
+            let cactusTimer = setInterval(() => {
+                if (isGameOver) {
+                    clearInterval(cactusTimer);
+                    cactus.remove();
+                    return;
+                }
+
+                cactusPosition -= 5;
+                cactus.style.left = cactusPosition + 'px';
+
+                const dinoBottom = parseInt(window.getComputedStyle(dino).bottom.replace('px', ''));
+                const dinoLeft = parseInt(window.getComputedStyle(dino).left.replace('px', ''));
+                const cactusLeft = parseInt(cactus.style.left.replace('px', ''));
+
+                if (cactusLeft > dinoLeft && cactusLeft < dinoLeft + 40 && dinoBottom < 50) {
+                    gameOver();
+                    clearInterval(cactusTimer);
+                }
+
+                if (cactusPosition < -30) {
+                    cactus.remove();
+                    score++;
+                    scoreElement.textContent = `Puntuación: ${score}`;
+                }
+            }, 20);
+
+            setTimeout(generateCactus, Math.random() * 2000 + 1000);
+        }
+
+        function gameOver() {
+            isGameOver = true;
+            alert('¡Juego terminado! Puntuación: ' + score);
+            location.reload(); // Reinicia el juego
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                jump();
+            }
+        });
+
+        generateCactus(); // Inicia los cactus
+    </script>
+</body>
+</html>
