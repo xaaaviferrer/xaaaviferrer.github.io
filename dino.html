@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dino</title>
-  <style>
-     body {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
-      }
-    #sidebar {
+            overflow: hidden;
+            background-color: #f4f4f4;
+        }
+        #sidebar {
             width: 200px;
             height: 100vh;
             background-color: #333;
@@ -31,49 +35,184 @@
             margin-left: 220px;
             padding: 20px;
         }
-        .dark-bg {
-            background-color: #2e2e2e;
-            color: white;
-            padding: 20px;
-            margin-top: 20px;
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background-color: #f4f4f4;
         }
-        .dark-bg-active {
-            background-color: #333;
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: #333;
+            display: none;
         }
-  </style>
+    </style>
 </head>
 <body>
-  <div id="sidebar">
-    <a href="index.html">Inicio</a>
-    <a id="linux-link" href="linux.html">Linux</a>
-    <a id="windows-link" href="windows.html">Windows</a>
-    <a id="jokes-link" href="jokes.html">Chistes</a>
-    <a id="dino-link" href="dino.html">Dino</a>
-  </div>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <a href="index.html">Inicio</a>
+        <a id="linux-link" href="linux.html">Linux</a>
+        <a id="windows-link" href="windows.html">Windows</a>
+        <a id="jokes-link" href="jokes.html">Chistes</a>
+        <a id="dino-link" href="dino.html">Dino</a>
+    </div>
 
-  <div class="content">
-    <h1>Bienvenido a Dino</h1>
-    <p>Contenido de la página Dino.</p>
-  </div>
+    <!-- Content -->
+    <div class="content">
+        <h1>Juego Dino</h1>
+        <div id="gameOver">Game Over! Press Space to Restart</div>
+        <canvas id="dinoCanvas"></canvas>
+    </div>
 
-  <script>
-    document.getElementById("linux-link").addEventListener("click", function(event) {
-        event.preventDefault();
-        document.getElementById("linux-link").classList.toggle("dark-bg-active");
-        window.location.href = this.href;
-    });
+    <script>
+        // Sidebar functionality
+        document.getElementById("linux-link").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("linux-link").classList.toggle("dark-bg-active");
+            window.location.href = this.href;
+        });
 
-    document.getElementById("windows-link").addEventListener("click", function(event) {
-        event.preventDefault();
-        document.getElementById("windows-link").classList.toggle("dark-bg-active");
-        window.location.href = this.href;
-    });
+        document.getElementById("windows-link").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("windows-link").classList.toggle("dark-bg-active");
+            window.location.href = this.href;
+        });
 
-    document.getElementById("dino-link").addEventListener("click", function(event) {
-        event.preventDefault();
-        document.getElementById("dino-link").classList.toggle("dark-bg-active");
-        window.location.href = this.href;
-    });
-  </script>
+        document.getElementById("dino-link").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("dino-link").classList.toggle("dark-bg-active");
+            window.location.href = this.href;
+        });
+
+        // Dino game code
+        const canvas = document.getElementById("dinoCanvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth - 220; // Adjust for sidebar width
+        canvas.height = window.innerHeight;
+
+        const dinoWidth = 50;
+        const dinoHeight = 50;
+        let dinoX = 50;
+        let dinoY = canvas.height - dinoHeight - 20;
+        let dinoSpeed = 0;
+        const gravity = 0.8;
+        const jumpHeight = -15;
+        let isJumping = false;
+
+        const obstacles = [];
+        const obstacleWidth = 20;
+        const obstacleHeight = 50;
+        let obstacleSpeed = 5;
+
+        let score = 0;
+        let gameOver = false;
+
+        function drawDino() {
+            ctx.fillStyle = "#555";
+            ctx.fillRect(dinoX, dinoY, dinoWidth, dinoHeight);
+        }
+
+        function drawObstacles() {
+            for (let i = 0; i < obstacles.length; i++) {
+                ctx.fillStyle = "#888";
+                ctx.fillRect(obstacles[i].x, obstacles[i].y, obstacleWidth, obstacleHeight);
+            }
+        }
+
+        function drawScore() {
+            ctx.font = "20px Arial";
+            ctx.fillStyle = "#000";
+            ctx.fillText("Score: " + score, 20, 30);
+        }
+
+        function moveDino() {
+            if (isJumping) {
+                dinoSpeed += gravity;
+                dinoY += dinoSpeed;
+                if (dinoY >= canvas.height - dinoHeight - 20) {
+                    dinoY = canvas.height - dinoHeight - 20;
+                    isJumping = false;
+                    dinoSpeed = 0;
+                }
+            }
+        }
+
+        function moveObstacles() {
+            for (let i = 0; i < obstacles.length; i++) {
+                obstacles[i].x -= obstacleSpeed;
+                if (obstacles[i].x + obstacleWidth < 0) {
+                    obstacles.splice(i, 1);
+                    score++;
+                    i--;
+                }
+            }
+        }
+
+        function checkCollision() {
+            for (let i = 0; i < obstacles.length; i++) {
+                if (
+                    dinoX + dinoWidth > obstacles[i].x &&
+                    dinoX < obstacles[i].x + obstacleWidth &&
+                    dinoY + dinoHeight > obstacles[i].y
+                ) {
+                    gameOver = true;
+                    document.getElementById("gameOver").style.display = "block";
+                }
+            }
+        }
+
+        function generateObstacles() {
+            if (Math.random() < 0.02) {
+                let height = Math.random() * (canvas.height - 100) + 20;
+                obstacles.push({
+                    x: canvas.width,
+                    y: height
+                });
+            }
+        }
+
+        function restartGame() {
+            if (gameOver && event.code === "Space") {
+                gameOver = false;
+                score = 0;
+                obstacles.length = 0;
+                dinoY = canvas.height - dinoHeight - 20;
+                document.getElementById("gameOver").style.display = "none";
+            }
+        }
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (!gameOver) {
+                moveDino();
+                moveObstacles();
+                checkCollision();
+                generateObstacles();
+
+                drawDino();
+                drawObstacles();
+                drawScore();
+
+                requestAnimationFrame(gameLoop);
+            }
+        }
+
+        window.addEventListener("keydown", (e) => {
+            if (e.code === "Space" && !isJumping && !gameOver) {
+                isJumping = true;
+                dinoSpeed = jumpHeight;
+            }
+
+            restartGame();
+        });
+
+        gameLoop();
+    </script>
 </body>
 </html>
