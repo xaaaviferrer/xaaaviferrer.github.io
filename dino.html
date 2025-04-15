@@ -5,32 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dino</title>
   <style>
-    /* Estilos básicos para la barra lateral */
-    .sidebar {
-      height: 100%;
-      width: 200px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #111;
-      padding-top: 20px;
-    }
-
-    .sidebar a {
-      display: block;
-      color: white;
-      padding: 10px 15px;
-      text-decoration: none;
-    }
-
-    .sidebar a:hover {
-      background-color: #575757;
-    }
-
-    .main-content {
-      margin-left: 210px;
-      padding: 20px;
-    }
+     body {
+            font-family: Arial, sans-serif;
+      }
+    #sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+        #sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        #sidebar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .dark-bg {
+            background-color: #2e2e2e;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .dark-bg-active {
+            background-color: #333;
+        }
   </style>
 </head>
 <body>
