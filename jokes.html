@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chistes</title>
-    <style>
-        body {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dino</title>
+  <style>
+     body {
             font-family: Arial, sans-serif;
-        }
-        #sidebar {
+      }
+    #sidebar {
             width: 200px;
             height: 100vh;
             background-color: #333;
@@ -40,51 +40,43 @@
         .dark-bg-active {
             background-color: #333;
         }
-    </style>
+  </style>
 </head>
 <body>
-<div id="sidebar">
+  <div id="sidebar">
     <a href="index.html">Inicio</a>
     <a id="linux-link" href="linux.html">Linux</a>
     <a id="windows-link" href="windows.html">Windows</a>
-    <a id="Chistes-link" href="jokes.html">Chistes</a>
-    <a id="dino-link" href="dino.html">Dino</a> 
-</div>
+    <a id="jokes-link" href="jokes.html">Chistes</a>
+    <a id="dino-link" href="dino.html">Dino</a>
+  </div>
+
   <div class="content">
-        <h1>Chistes</h1>
-        <p>Este es el contenido principal de la página de chistes.</p>
-        <p>1.   —Oye, ¿cuál es tu plato favorito? —Pues el hondo, porque cabe más comida.</p>
-        <p>2.   —Doctor, doctor, tengo todo el cuerpo cubierto de pelo, ¿qué padezco? —Padece un osito.</p>
-        <p>3.   —¡Camarero! Este filete tiene muchos nervios. —Normal, es la primera vez que se lo comen</p>
-        <p>4.   —Papá, papá, ¿los vampiros existen? —No hijo, son cosas del cine... —Menos mal, porque hay uno chupándole el cuello a mamá en la cocina.</p>
-        <p>5.   —¿Qué le dice una iguana a su hermana gemela? —¡Iguanita!</p>
-        <p>6.   —¿Qué hace una abeja en el gimnasio? —¡Zum-ba!</p>
-        <p>7.   —¿Cuál es el animal más antiguo? —La cebra, porque está en blanco y negro.</p>
-        <p>8.   —Mamá, en el colegio me llaman distraído. —Juanito, tú vives en la casa de enfrente</p>
-        <p>9.   —¿Cuál es el colmo de Aladdín? —Tener mal genio</p>
-        <p>10.  —¿Cómo se despiden los químicos? —Ácido un placer.</p>
-        <p>11.  — ¿Por qué el libro de matemáticas se deprimió? — Porque tenía demasiados problemas.</p>
-        <p>12.  — ¿Por qué el perro lleva reloj? — Porque es un perro puntual.</p>
-        <p>13.  — ¿Cuál es el colmo de un electricista? — No encontrar su corriente de trabajo</p>
-        <p>14.  — ¿Por qué los pájaros no usan Facebook? — Porque ya tienen Twitter.</p>
-        <p>15.  — ¿Cómo se llama el campeón de surfing? — Surfista. — ¿Y el subcampeón? — Subsurfista.</p>
-        <p>16.  — Estás obsesionado con el fútbol, de verdad. — No, qué va, es que me lo han dicho ya varias veces y no me acuerdo, pero me lo han dicho</p>
-        <p>17.  — ¿Por qué las vacas no usan teléfono móvil? — Porque ya tienen su propio "cow-municador"</p>
-        <p>18.  — Papá, en el colegio me llaman raro. — ¡Qué raro! Si en tu casa te llamamos "Juanito"</p>
-    </div>
+    <h1>Bienvenido a Dino</h1>
+    <p>Contenido de la página Dino.</p>
+  </div>
 
-   <script>
- document.getElementById("windows-link").addEventListener("click", function(event) {
-        event.preventDefault(); // Evita la acción predeterminada del enlace
+  <script>
+    document.getElementById("linux-link").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("linux-link").classList.toggle("dark-bg-active");
+        window.location.href = this.href;
+    });
+
+    document.getElementById("windows-link").addEventListener("click", function(event) {
+        event.preventDefault();
         document.getElementById("windows-link").classList.toggle("dark-bg-active");
-        window.location.href = this.href; // Redirige a la URL del enlace
+        window.location.href = this.href;
     });
 
-    document.getElementById("jokes-link").addEventListener("click", function(event) {
-        event.preventDefault(); // Evita la acción predeterminada del enlace
-        document.getElementById("jokes-link").classList.toggle("dark-bg-active");
-        window.location.href = this.href; // Redirige a la URL del enlace
+    document.getElementById("dino-link").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("dino-link").classList.toggle("dark-bg-active");
+        window.location.href = this.href;
     });
+  </script>
+</body>
+</html>
 </script>
 </body>
 </html>
