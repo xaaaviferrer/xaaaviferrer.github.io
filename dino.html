@@ -43,17 +43,37 @@
   </style>
 </head>
 <body>
-  <div class="sidebar">
+  <div id="sidebar">
     <a href="index.html">Inicio</a>
-    <a href="dino.html">Dino</a>
-    <a href="linux.html">Linux</a>
-    <a href="jokes.html">Chistes</a>
-    <a href="windows.html">Windows</a>
+    <a id="linux-link" href="linux.html">Linux</a>
+    <a id="windows-link" href="windows.html">Windows</a>
+    <a id="jokes-link" href="jokes.html">Chistes</a>
+    <a id="dino-link" href="dino.html">Dino</a>
   </div>
 
-  <div class="main-content">
+  <div class="content">
     <h1>Bienvenido a Dino</h1>
     <p>Contenido de la página Dino.</p>
   </div>
+
+  <script>
+    document.getElementById("linux-link").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("linux-link").classList.toggle("dark-bg-active");
+        window.location.href = this.href;
+    });
+
+    document.getElementById("windows-link").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("windows-link").classList.toggle("dark-bg-active");
+        window.location.href = this.href;
+    });
+
+    document.getElementById("dino-link").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("dino-link").classList.toggle("dark-bg-active");
+        window.location.href = this.href;
+    });
+  </script>
 </body>
 </html>
