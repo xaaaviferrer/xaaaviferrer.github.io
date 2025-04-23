@@ -47,3 +47,8 @@
         <a id="jokes-link" href="jokes.html">Chistes</a> <!-- Nuevo botón -->
         <a id="dino-link" href="realdino.html">Dino</a> <!-- Botón Dino -->
     </div>
+   <sript>document.getElementById("dino-link").addEventListener("click", function(event) {
+    event.preventDefault(); // Evita la acción predeterminada del enlace
+    document.getElementById("dino-link").classList.toggle("dark-bg-active");
+    window.location.href = this.href; // Redirige a la URL del enlace});
+   </sript>
