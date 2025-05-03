@@ -4,43 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dino</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #sidebar {
-            width: 200px;
-            height: 100vh;
-            background-color: #333;
-            color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding-top: 20px;
-        }
-        #sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-        #sidebar a:hover {
-            background-color: #575757;
-        }
-        .content {
-            margin-left: 220px;
-            padding: 20px;
-        }
-        .dark-bg {
-            background-color: #2e2e2e;
-            color: white;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .dark-bg-active {
-            background-color: #333;
-        }
-    </style>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    #sidebar {
+        width: 200px;
+        height: 100vh;
+        background-color: #333;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 20px;
+    }
+    #sidebar ul {
+        list-style-type: none; /* Quita los puntos de la lista */
+        padding: 0; /* Elimina el padding predeterminado */
+        margin: 0; /* Elimina el margen predeterminado */
+    }
+    #sidebar li {
+        margin-bottom: 10px; /* Espaciado entre los elementos */
+    }
+    #sidebar li a {
+        padding: 10px 15px;
+        text-decoration: none;
+        color: white;
+        display: block;
+        font-size: 18px; /* Aumenta el tamaño de la letra */
+    }
+    #sidebar li a:hover {
+        background-color: #575757;
+    }
+    .content {
+        margin-left: 220px;
+        padding: 20px;
+    }
+</style>
 </head>
 <body>
     <!-- Sidebar -->
