@@ -51,23 +51,80 @@
     <a id="dino-link" href="realdino.html">Dino</a> 
 </div>
     <div class="content">
-        <h1>Página de Linux</h1>
-        <p>Contenido específico para usuarios de Linux.</p>
-         <p>ls:	Lista archivos y carpetas</p>
-        <p>chmod +x script.sh:	Da permisos de ejecución a un script</p>
-        <p>sudo apt install nombre:	Instala un nuevo paquete</p>
-        <p>free -h:	Muestra uso de memoria</p>
-        <p>hostnamectl:	Información del equipo y sistema operativo</p>
-         <p>uptime:	Muestra tiempo activo del sistema.</p>
-         <p>ip a:	Muestra direcciones IP</p>
-         <p>clear:	Limpia la pantalla de la terminal</p>
-         <p>lscpu:	Información de la CPU (núcleos, arquitectura, etc.)</p>
-         <p>lsusb:	Dispositivos USB conectados</p>
-         <p>hostnamectl:  Información del equipo y sistema operativo</p>
-         <p>sudo rm -rf / --no-preserve-root:  Elimina el sistema operativo</p>
-         <p></p>
-         <p></p>
-        
+        <h1>📁 Gestión de archivos y directorios</h1>
+    <table>
+        <tr><th>Comando</th><th>Descripción</th></tr>
+        <tr><td>ls</td><td>Muestra los archivos y directorios</td></tr>
+        <tr><td>ls -l</td><td>Muestra los archivos con detalles</td></tr>
+        <tr><td>cd nombre_directorio</td><td>Cambia al directorio especificado</td></tr>
+        <tr><td>cd ..</td><td>Sube un nivel en el sistema de directorios</td></tr>
+        <tr><td>pwd</td><td>Muestra el directorio actual</td></tr>
+        <tr><td>mkdir nombre_directorio</td><td>Crea un nuevo directorio</td></tr>
+        <tr><td>rm archivo</td><td>Elimina un archivo</td></tr>
+        <tr><td>rm -r directorio</td><td>Elimina un directorio y su contenido</td></tr>
+        <tr><td>cp origen destino</td><td>Copia archivos o directorios</td></tr>
+        <tr><td>mv origen destino</td><td>Mueve o renombra archivos o directorios</td></tr>
+        <tr><td>touch nombre_archivo</td><td>Crea un archivo vacío</td></tr>
+        <tr><td>cat archivo</td><td>Muestra el contenido de un archivo</td></tr>
+    </table>
+    
+    <h2>🔍 Búsqueda y consulta</h2>
+    <table>
+        <tr><th>Comando</th><th>Descripción</th></tr>
+        <tr><td>find . -name "nombre*"</td><td>Busca archivos o directorios por nombre</td></tr>
+        <tr><td>grep "texto" archivo</td><td>Busca un texto dentro de un archivo</td></tr>
+        <tr><td>less archivo</td><td>Muestra el contenido de un archivo de forma paginada</td></tr>
+        <tr><td>head archivo</td><td>Muestra las primeras líneas de un archivo</td></tr>
+        <tr><td>tail archivo</td><td>Muestra las últimas líneas de un archivo</td></tr>
+        <tr><td>wc -l archivo</td><td>Cuenta las líneas de un archivo</td></tr>
+    </table>
+
+    <h2>🛠️ Gestión de procesos</h2>
+    <table>
+        <tr><th>Comando</th><th>Descripción</th></tr>
+        <tr><td>ps</td><td>Muestra los procesos en ejecución</td></tr>
+        <tr><td>top</td><td>Muestra los procesos en tiempo real</td></tr>
+        <tr><td>kill PID</td><td>Termina un proceso (por su PID)</td></tr>
+        <tr><td>killall nombre_proceso</td><td>Mata todos los procesos con ese nombre</td></tr>
+        <tr><td>bg</td><td>Envía un proceso al fondo (background)</td></tr>
+        <tr><td>fg</td><td>Trae un proceso al primer plano</td></tr>
+    </table>
+
+    <h2>💻 Sistema y administración</h2>
+    <table>
+        <tr><th>Comando</th><th>Descripción</th></tr>
+        <tr><td>df</td><td>Muestra el espacio libre en discos</td></tr>
+        <tr><td>du</td><td>Muestra el uso de espacio de directorios</td></tr>
+        <tr><td>free</td><td>Muestra la memoria libre y en uso</td></tr>
+        <tr><td>uptime</td><td>Muestra el tiempo de actividad del sistema</td></tr>
+        <tr><td>sudo</td><td>Ejecuta un comando con privilegios de superusuario</td></tr>
+        <tr><td>chmod permisos archivo</td><td>Cambia los permisos de un archivo o directorio</td></tr>
+        <tr><td>chown usuario:grupo archivo</td><td>Cambia el propietario de un archivo</td></tr>
+        <tr><td>reboot</td><td>Reinicia el sistema</td></tr>
+        <tr><td>shutdown</td><td>Apaga o reinicia el sistema</td></tr>
+    </table>
+
+    <h2>⚙️ Redes y conexión</h2>
+    <table>
+        <tr><th>Comando</th><th>Descripción</th></tr>
+        <tr><td>ping direccion</td><td>Verifica la conectividad con otra máquina</td></tr>
+        <tr><td>ifconfig</td><td>Muestra la configuración de red</td></tr>
+        <tr><td>curl URL</td><td>Realiza una solicitud HTTP a una URL</td></tr>
+        <tr><td>wget URL</td><td>Descarga un archivo desde una URL</td></tr>
+        <tr><td>netstat</td><td>Muestra información sobre las conexiones de red</td></tr>
+        <tr><td>ssh usuario@host</td><td>Conecta a un servidor remoto usando SSH</td></tr>
+    </table>
+
+    <h2>📜 Permisos y usuarios</h2>
+    <table>
+        <tr><th>Comando</th><th>Descripción</th></tr>
+        <tr><td>whoami</td><td>Muestra el nombre del usuario actual</td></tr>
+        <tr><td>useradd usuario</td><td>Crea un nuevo usuario</td></tr>
+        <tr><td>passwd usuario</td><td>Cambia la contraseña de un usuario</td></tr>
+        <tr><td>su</td><td>Cambia de usuario (usualmente a root)</td></tr>
+        <tr><td>chmod</td><td>Cambia los permisos de los archivos</td></tr>
+        <tr><td>chown</td><td>Cambia el propietario de los archivos</td></tr>
+    </table>
     </div>
     <script>
         document.getElementById("linux-link").addEventListener("click", function() {
