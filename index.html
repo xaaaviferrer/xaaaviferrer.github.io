@@ -4,43 +4,55 @@ l<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flex</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #sidebar {
-            width: 200px;
-            height: 100vh;
-            background-color: #333;
-            color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding-top: 20px;
-        }
-        #sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-        #sidebar a:hover {
-            background-color: #575757;
-        }
-        .content {
-            margin-left: 220px;
-            padding: 20px;
-        }
-        .dark-bg {
-            background-color: #2e2e2e;
-            color: white;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .dark-bg-active {
-            background-color: #333;
-        }
-         #github-button {
+   <div id="sidebar">
+    <a href="index.html">Inicio</a>
+    <a id="linux-link" href="linux.html">Linux</a>
+    <a id="windows-link" href="windows.html">Windows</a>
+    <a id="jokes-link" href="jokes.html">Chistes</a>
+    <a id="dino-link" href="realdino.html">Dino</a>
+</div>
+<!-- Botón en la parte superior derecha -->
+<a href="https://github.com/xaaaviferrer" target="_blank" id="github-button">Mi Perfil de GitHub</a>
+
+<div class="content">
+    <h1>Bienvenido a Flex</h1>
+    <p>Este es el contenido principal de la página.</p>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+
+    #sidebar {
+        width: 200px;
+        height: 100vh;
+        background-color: #333;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 20px;
+    }
+
+    #sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        color: white;
+        display: block;
+    }
+
+    #sidebar a:hover {
+        background-color: #575757;
+    }
+
+    .content {
+        margin-left: 220px;
+        padding: 20px;
+    }
+
+    #github-button {
         position: absolute;
         top: 20px;
         right: 20px;
@@ -51,22 +63,16 @@ l<!DOCTYPE html>
         border-radius: 5px;
         font-family: Arial, sans-serif;
         font-size: 14px;
+        z-index: 100;
     }
 
     #github-button:hover {
         background-color: #575757;
     }
-    </style>
+</style>
 </head>
-<body>
-   <div class="content">
-    <h1>Bienvenido a Flex</h1>
-    <p>Este es el contenido principal de la página.</p>
-</div>
-
 <a href="https://github.com/xaaaviferrer" target="_blank" id="github-button">Mi Perfil de GitHub</a>
-
-    <script>
+   <script>
         document.getElementById("linux-link").addEventListener("click", function(event) {
             event.preventDefault(); // Evita la acción predeterminada del enlace
             document.getElementById("linux-link").classList.toggle("dark-bg-active");
