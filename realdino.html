@@ -60,15 +60,23 @@
     </div>
 
     <script>
-        // Ejemplo de script para manejar dinámicamente los enlaces del sidebar
-        document.querySelectorAll("#sidebar a").forEach(link => {
-            link.addEventListener("click", function(event) {
-                event.preventDefault(); // Evita la acción predeterminada del enlace
-                document.querySelectorAll("#sidebar a").forEach(a => a.classList.remove("dark-bg-active"));
-                this.classList.add("dark-bg-active"); // Activa el enlace seleccionado
-                window.location.href = this.href; // Redirige a la URL del enlace
-            });
+      <script>
+      // Aplica la clase `dark-bg-active` al enlace actual (Dino)
+       document.addEventListener("DOMContentLoaded", function() {
+        const currentLink = document.querySelector("#dino-link");
+        currentLink.classList.add("dark-bg-active");
+    });
+
+    // Ejemplo de script para manejar dinámicamente los enlaces del sidebar
+    document.querySelectorAll("#sidebar a").forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault(); // Evita la acción predeterminada del enlace
+            document.querySelectorAll("#sidebar a").forEach(a => a.classList.remove("dark-bg-active"));
+            this.classList.add("dark-bg-active"); // Activa el enlace seleccionado
+            window.location.href = this.href; // Redirige a la URL del enlace
         });
+    });
+</script>
     </script>
 </body>
 </html>
