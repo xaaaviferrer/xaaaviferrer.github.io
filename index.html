@@ -24,13 +24,36 @@ l<!DOCTYPE html>
        <p></p>
        <p></p>
 </div>
-    <section>
+   <section>
   <h2>Otros proyectos creados por mí</h2>
   <ul>
-    <li><a href="https://xaaaviferrer.github.io/code-runner/" target="_blank">Code Runner</a></li>
+    <li>
+      <a href="https://xaaaviferrer.github.io/code-runner/" target="_blank" id="code-runner-button">
+        Code Runner
+      </a>
+    </li>
   </ul>
 </section>
+
 <style>
+  #code-runner-button {
+      display: inline-block;
+      background-color: #333; /* Color igual a la barra lateral */
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      text-align: center;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  #code-runner-button:hover {
+      background-color: #575757; /* Color ligeramente más claro al pasar el ratón */
+      transform: scale(1.05); /* Pequeño efecto de zoom */
+  }
+
     body {
         font-family: Arial, sans-serif;
         margin: 0;
