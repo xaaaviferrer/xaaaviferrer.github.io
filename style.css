@@ -2,3 +2,8 @@ li {
   font-size: 1.5rem; /* Aumenta el tamaño de la letra */
   margin-bottom: 10px; /* Añade espacio debajo de cada <li> */
 }
+body {
+  overflow-y: scroll;
+}
+
+
