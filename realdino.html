@@ -51,23 +51,23 @@
     </div>
 
     <script>
-      <script>
-      // Aplica la clase `dark-bg-active` al enlace actual (Dino)
-       document.addEventListener("DOMContentLoaded", function() {
-        const currentLink = document.querySelector("#dino-link");
-        currentLink.classList.add("dark-bg-active");
-    });
-
-    // Ejemplo de script para manejar dinámicamente los enlaces del sidebar
-    document.querySelectorAll("#sidebar a").forEach(link => {
-        link.addEventListener("click", function(event) {
+      document.getElementById("linux-link").addEventListener("click", function(event) {
             event.preventDefault(); // Evita la acción predeterminada del enlace
-            document.querySelectorAll("#sidebar a").forEach(a => a.classList.remove("dark-bg-active"));
-            this.classList.add("dark-bg-active"); // Activa el enlace seleccionado
+            document.getElementById("linux-link").classList.toggle("dark-bg-active");
             window.location.href = this.href; // Redirige a la URL del enlace
         });
-    });
-</script>
+
+        document.getElementById("windows-link").addEventListener("click", function(event) {
+            event.preventDefault(); // Evita la acción predeterminada del enlace
+            document.getElementById("windows-link").classList.toggle("dark-bg-active");
+            window.location.href = this.href; // Redirige a la URL del enlace
+        });
+
+        document.getElementById("realdino-link").addEventListener("click", function(event) {
+            event.preventDefault(); // Evita la acción predeterminada del enlace
+            document.getElementById("realdino-link").classList.toggle("dark-bg-active");
+            window.location.href = this.href; // Redirige a la URL del enlace
+        });
     </script>
 </body>
 </html>
