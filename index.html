@@ -1,10 +1,67 @@
-l<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flex</title>
-   <div id="sidebar">
+    <style>
+      .custom-button {
+          display: inline-block;
+          background-color: #333;
+          color: white;
+          text-decoration: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+          text-align: center;
+          transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      .custom-button:hover {
+          background-color: #575757;
+          transform: scale(1.05);
+      }
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+      }
+      #sidebar {
+          width: 200px;
+          height: 100vh;
+          background-color: #333;
+          color: white;
+          position: fixed;
+          top: 0;
+          left: 0;
+          padding-top: 20px;
+      }
+      #sidebar a {
+          padding: 10px 15px;
+          text-decoration: none;
+          color: white;
+          display: block;
+      }
+      #sidebar a:hover {
+          background-color: #575757;
+      }
+      .content {
+          margin-left: 220px;
+          padding: 20px;
+      }
+      section {
+          margin-left: 220px;
+          padding: 20px;
+      }
+      #github-button {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          z-index: 100;
+      }
+    </style>
+</head>
+<body>
+<div id="sidebar">
     <a href="index.html">Inicio</a>
     <a id="linux-link" href="linux.html">Linux</a>
     <a id="windows-link" href="windows.html">Windows</a>
@@ -12,122 +69,44 @@ l<!DOCTYPE html>
     <a id="dino-link" href="realdino.html">Dino</a>
 </div>
 <!-- Botón en la parte superior derecha -->
-<a href="https://github.com/xaaaviferrer" target="_blank" id="github-button">Mi Perfil de GitHub</a>
+<a href="https://github.com/xaaaviferrer" target="_blank" id="github-button" class="custom-button">Mi Perfil de GitHub</a>
 
 <div class="content">
     <h1>Bienvenido a Flex</h1>
     <p>Este es el contenido principal de la página.</p>
-       <p></p>
-       <p></p>
-       <p></p>
-       <p></p>
-       <p></p>
-       <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
 </div>
-   <section>
+<section>
   <h2>Otros proyectos creados por mí</h2>
   <ul>
     <li>
-      <a href="https://xaaaviferrer.github.io/code-runner/" target="_blank" id="code-runner-button">
+      <a href="https://xaaaviferrer.github.io/code-runner/" target="_blank" id="code-runner-button" class="custom-button">
         Code Runner
       </a>
     </li>
   </ul>
 </section>
-
-<style>
-  #code-runner-button {
-      display: inline-block;
-      background-color: #333; /* Color igual a la barra lateral */
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      text-align: center;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-
-  #code-runner-button:hover {
-      background-color: #575757; /* Color ligeramente más claro al pasar el ratón */
-      transform: scale(1.05); /* Pequeño efecto de zoom */
-  }
-
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-    }
-
-    #sidebar {
-        width: 200px;
-        height: 100vh;
-        background-color: #333;
-        color: white;
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding-top: 20px;
-    }
-
-    #sidebar a {
-        padding: 10px 15px;
-        text-decoration: none;
-        color: white;
-        display: block;
-    }
-
-    #sidebar a:hover {
-        background-color: #575757;
-    }
-
-    .content {
-        margin-left: 220px;
-        padding: 20px;
-    }
-    section {
-        margin-left: 220px; /* Alinea la sección con el contenido */
-        padding: 20px;
-   }
-    
-    #github-button {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background-color: #333;
-        color: white;
-        text-decoration: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        z-index: 100;
-    }
-
-    #github-button:hover {
-        background-color: #575757;
-    }
-</style>
-</head>
-<a href="https://github.com/xaaaviferrer" target="_blank" id="github-button">Mi Perfil de GitHub</a>
-   <script>
-        document.getElementById("linux-link").addEventListener("click", function(event) {
-            event.preventDefault(); // Evita la acción predeterminada del enlace
-            document.getElementById("linux-link").classList.toggle("dark-bg-active");
-            window.location.href = this.href; // Redirige a la URL del enlace
-        });
-
-        document.getElementById("windows-link").addEventListener("click", function(event) {
-            event.preventDefault(); // Evita la acción predeterminada del enlace
-            document.getElementById("windows-link").classList.toggle("dark-bg-active");
-            window.location.href = this.href; // Redirige a la URL del enlace
-        });
-
-        document.getElementById("realdino-link").addEventListener("click", function(event) {
-            event.preventDefault(); // Evita la acción predeterminada del enlace
-            document.getElementById("realdino-link").classList.toggle("dark-bg-active");
-            window.location.href = this.href; // Redirige a la URL del enlace
-        });
-    </script>
+<script>
+    document.getElementById("linux-link").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("linux-link").classList.toggle("dark-bg-active");
+        window.location.href = this.href;
+    });
+    document.getElementById("windows-link").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("windows-link").classList.toggle("dark-bg-active");
+        window.location.href = this.href;
+    });
+    document.getElementById("dino-link").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("dino-link").classList.toggle("dark-bg-active");
+        window.location.href = this.href;
+    });
+</script>
 </body>
 </html>
